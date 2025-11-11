@@ -1,0 +1,42 @@
+<section
+  class="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#111440] via-[#1F2373] to-[#2D33A6]"
+>
+  <div
+    class="bg-[#1F2373]/60 backdrop-blur-md p-10 rounded-3xl shadow-2xl w-full max-w-md text-center text-[#BDF2F2]"
+  >
+    <h2 class="text-4xl font-bold mb-6">Iniciar Sesión</h2>
+
+    <form (ngSubmit)="iniciarSesion()" class="space-y-6">
+      <div>
+        <label class="block text-left mb-2 text-sm">Usuario</label>
+        <input
+          type="text"
+          [(ngModel)]="usuario"
+          name="usuario"
+          class="w-full px-4 py-3 rounded-lg bg-[#111440]/60 border border-[#343BBF]/60 focus:outline-none focus:ring-2 focus:ring-[#BDF2F2]"
+          placeholder="Ingresa tu usuario"
+        />
+      </div>
+
+      <div>
+        <label class="block text-left mb-2 text-sm">Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          class="w-full px-4 py-3 rounded-lg bg-[#111440]/60 border border-[#343BBF]/60 focus:outline-none focus:ring-2 focus:ring-[#BDF2F2]"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-[#343BBF] hover:bg-[#2D33A6] text-[#BDF2F2] font-semibold py-3 rounded-lg transition-transform hover:scale-105"
+      >
+        Ingresar
+      </button>
+    </form>
+
+    <p *ngIf="error" class="text-red-400 mt-4 text-sm">{{ error }}</p>
+  </div>
+</section>
