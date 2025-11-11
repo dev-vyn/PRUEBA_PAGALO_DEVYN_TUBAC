@@ -1,0 +1,64 @@
+<section
+  class="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden bg-gradient-to-b from-[#111440] via-[#1F2373] to-[#2D33A6] text-white"
+>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:3px_3px] animate-twinkle"></div>
+
+  <div class="absolute w-[900px] h-[900px] bg-[#2D33A6]/40 blur-3xl rounded-full top-[-300px] left-[-300px] animate-nebula"></div>
+  <div class="absolute w-[700px] h-[700px] bg-[#343BBF]/30 blur-3xl rounded-full bottom-[-200px] right-[-200px] animate-nebula-delayed"></div>
+
+  <div class="absolute w-32 h-32 bg-[#BDF2F2]/60 rounded-full blur-md top-24 left-24 animate-orbit-slow"></div>
+  <div class="absolute w-20 h-20 bg-[#343BBF]/70 rounded-full blur-md top-1/3 right-16 animate-orbit-medium"></div>
+  <div class="absolute w-14 h-14 bg-[#1F2373] rounded-full blur-sm bottom-1/3 left-1/2 animate-orbit-fast"></div>
+
+  <div class="shooting-star one"></div>
+  <div class="shooting-star one"></div>
+  <div class="shooting-star two"></div>
+  <div class="shooting-star three"></div>
+  <div class="shooting-star four"></div>
+
+  <div class="absolute w-[600px] h-[600px] bg-[#343BBF]/40 rounded-full blur-3xl animate-pulse-slow"></div>
+
+  <div class="relative z-10 px-6">
+    <h1
+      class="text-6xl md:text-7xl font-extrabold text-[#BDF2F2] tracking-widest mb-6 animate-roll"
+    >
+      THE MOVIE
+    </h1>
+
+    <p
+      class="text-lg md:text-xl text-[#E6E8FF]/90 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade"
+    >
+      Vive la experiencia del séptimo arte con estilo.  
+      Descubre los últimos estrenos y las películas más destacadas del momento.
+    </p>
+
+    <a
+      routerLink="/auth/login"
+      class="relative bg-[#343BBF] hover:bg-[#2D33A6] text-[#BDF2F2] font-semibold text-lg px-10 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+    >
+      Iniciar sesión
+      <span
+        class="absolute inset-0 rounded-full ring-2 ring-[#BDF2F2] opacity-0 hover:opacity-100 transition-opacity"
+      ></span>
+    </a>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-[#111440] to-transparent"></div>
+</section>
+
+<section class="py-20 bg-[#111440] text-[#BDF2F2] text-center px-6 relative">
+  <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in">
+    Tu cine, tu espacio
+  </h2>
+  <p
+    class="max-w-3xl mx-auto text-lg opacity-80 leading-relaxed fade-in delay-200"
+  >
+    Explora un catálogo exclusivo de películas, series y documentales.  
+    Accede a detalles completos, trailers y valoraciones de la comunidad.  
+    Todo en un entorno moderno, rápido y elegante.
+  </p>
+
+  <app-carrusel></app-carrusel>
+</section>
+
+<app-footer></app-footer>

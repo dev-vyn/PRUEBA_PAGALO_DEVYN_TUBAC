@@ -1,0 +1,183 @@
+/* 🌠 Twinkle effect (estrellas parpadeando) */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+/* 🌍 Movimiento flotante de planetas */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+@keyframes floatMedium {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-25px) translateX(-15px);
+  }
+}
+@keyframes floatFast {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+.animate-float-medium {
+  animation: floatMedium 6s ease-in-out infinite;
+}
+.animate-float-fast {
+  animation: floatFast 4s ease-in-out infinite;
+}
+
+/* 🎞️ Animación de rollo cinematográfico del título */
+@keyframes roll {
+  0% {
+    letter-spacing: 1rem;
+    transform: scale(0.8) rotateX(90deg);
+    opacity: 0;
+  }
+  50% {
+    letter-spacing: 0.5rem;
+    transform: scale(1.1) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: 0.1rem;
+    transform: scale(1);
+  }
+}
+.animate-roll {
+  animation: roll 1.5s ease-out forwards;
+  transform-origin: center bottom;
+}
+
+/* ✨ Fade in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1.5s ease forwards 0.3s;
+}
+
+/* ✨ Estrellas parpadeantes */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.animate-twinkle {
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+/* ☁️ Nebulosas suaves */
+@keyframes nebulaMove {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50% { transform: translate(40px, 30px) scale(1.1); opacity: 0.9; }
+  100% { transform: translate(-40px, -30px) scale(1); opacity: 0.7; }
+}
+.animate-nebula {
+  animation: nebulaMove 20s ease-in-out infinite alternate;
+}
+.animate-nebula-delayed {
+  animation: nebulaMove 25s ease-in-out infinite alternate-reverse;
+}
+
+/* 🌍 Planetas orbitando */
+@keyframes orbitSlow {
+  0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+@keyframes orbitMedium {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@keyframes orbitFast {
+  0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+.animate-orbit-slow {
+  transform-origin: center;
+  animation: orbitSlow 50s linear infinite;
+}
+.animate-orbit-medium {
+  transform-origin: center;
+  animation: orbitMedium 35s linear infinite;
+}
+.animate-orbit-fast {
+  transform-origin: center;
+  animation: orbitFast 20s linear infinite;
+}
+
+/* 🌠 Estrellas fugaces */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(180deg, #BDF2F2, transparent);
+  border-radius: 2px;
+  opacity: 0.6;
+  transform: rotate(45deg);
+  animation: shoot 8s linear infinite;
+}
+.shooting-star.one { top: 20%; left: 70%; animation-delay: 0s; }
+.shooting-star.two { top: 50%; left: 10%; animation-delay: 3s; }
+.shooting-star.three { top: 30%; left: 50%; animation-delay: 6s; }
+
+@keyframes shoot {
+  0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateX(-400px) translateY(200px) rotate(45deg); opacity: 1; }
+  100% { opacity: 0; transform: translateX(-800px) translateY(400px) rotate(45deg); }
+}
+
+/* 💫 Halo pulsante */
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+.animate-pulse-slow {
+  animation: pulseSlow 6s ease-in-out infinite;
+}
+
+/* 🎞️ Animación del título tipo rollo */
+@keyframes roll {
+  0% { letter-spacing: 1rem; transform: scale(0.8) rotateX(90deg); opacity: 0; }
+  50% { letter-spacing: 0.5rem; transform: scale(1.1) rotateX(0deg); opacity: 1; }
+  100% { letter-spacing: 0.2rem; transform: scale(1); }
+}
+.animate-roll {
+  animation: roll 2s ease-out forwards;
+  transform-origin: center bottom;
+}
+
+/* ✨ Fade-in suave */
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1.8s ease forwards 0.5s;
+}

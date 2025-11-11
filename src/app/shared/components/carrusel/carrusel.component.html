@@ -1,0 +1,44 @@
+<section class="relative w-full max-w-7xl mx-auto px-4 md:px-6 py-16">
+  <div class="relative overflow-hidden">
+    <div
+      class="flex transition-transform duration-700 ease-in-out"
+      [style.transform]="'translateX(-' + indiceActual * cardWidth + 'px)'"
+      [style.width]="peliculas.length * cardWidth + 'px'"
+    >
+      <div
+        *ngFor="let peli of peliculas"
+        class="w-[230px] flex-shrink-0 bg-[#1F2373] rounded-2xl overflow-hidden shadow-lg hover:shadow-[#343BBF]/60 transition-transform duration-500 group relative mx-2"
+      >
+        <img
+          [src]="peli.imagen"
+          [alt]="peli.titulo"
+          class="w-full h-[330px] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
+        />
+
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#111440]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+        ></div>
+
+        <h3
+          class="absolute bottom-4 left-0 w-full text-center text-[#BDF2F2] text-sm font-semibold tracking-wide opacity-100 group-hover:text-[#BDF2F2]"
+        >
+          {{ peli.titulo }}
+        </h3>
+      </div>
+    </div>
+
+    <button
+      (click)="anterior()"
+      class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#2D33A6]/70 hover:bg-[#343BBF] text-[#BDF2F2] text-2xl p-3 rounded-full shadow-lg transition-all duration-300"
+    >
+      ‹
+    </button>
+
+    <button
+      (click)="siguiente()"
+      class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#2D33A6]/70 hover:bg-[#343BBF] text-[#BDF2F2] text-2xl p-3 rounded-full shadow-lg transition-all duration-300"
+    >
+      ›
+    </button>
+  </div>
+</section>
