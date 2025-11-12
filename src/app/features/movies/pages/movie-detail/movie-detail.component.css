@@ -1,0 +1,17 @@
+section {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes twinkle {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+.animate-twinkle {
+  animation: twinkle 20s linear infinite;
+}

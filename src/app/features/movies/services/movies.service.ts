@@ -4,7 +4,7 @@ import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MoviesService {
   private apiUrl = environment.apiUrl;
@@ -47,5 +47,17 @@ export class MoviesService {
 
   getMovieDetails(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${id}?api_key=${this.apiKey}&language=es-ES`);
+  }
+
+  getMovieCredits(id: number) {
+    return this.http.get(
+      `${this.apiUrl}/movie/${id}/credits?api_key=${this.apiKey}&language=es-ES`
+    );
+  }
+
+  getRelatedMovies(id: number) {
+    return this.http.get(
+      `${this.apiUrl}/movie/${id}/similar?api_key=${this.apiKey}&language=es-ES`
+    );
   }
 }

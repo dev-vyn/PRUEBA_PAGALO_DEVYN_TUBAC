@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+
+<section
+  *ngIf="!cargando && pelicula"
+  class="min-h-screen bg-gradient-to-b from-[#111440] via-[#1F2373] to-[#2D33A6] text-[#BDF2F2] overflow-hidden relative"
+>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:4px_4px] animate-twinkle pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+    <div class="flex justify-center">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + pelicula.poster_path"
+        [alt]="pelicula.title"
+        class="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
+      />
+    </div>
+
+    <div>
+      <h1 class="text-5xl font-extrabold mb-4">{{ pelicula.title }}</h1>
+      <p class="text-[#BDF2F2]/80 italic mb-6">{{ pelicula.tagline }}</p>
+
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-3xl text-yellow-400">⭐</span>
+        <span class="text-2xl font-bold">{{ pelicula.vote_average | number:'1.1-1' }}</span>
+        <span class="text-[#BDF2F2]/70">/ 10</span>
+      </div>
+
+      <p class="text-[#E6E8FF]/80 leading-relaxed mb-8">
+        {{ pelicula.overview }}
+      </p>
+
+      <div class="mb-10">
+        <label class="block mb-2 font-semibold">Califica esta película</label>
+        <select
+          [(ngModel)]="votoUsuario"
+          class="bg-[#1F2373]/60 border border-[#343BBF]/50 px-3 py-2 rounded-lg text-[#BDF2F2] outline-none"
+        >
+          <option [ngValue]="null" disabled selected>Selecciona una puntuación</option>
+          <option *ngFor="let n of [1,2,3,4,5,6,7,8,9,10]" [ngValue]="n">
+            {{ n }} ⭐
+          </option>
+        </select>
+        <button
+          (click)="votar()"
+          [disabled]="!votoUsuario"
+          class="ml-3 px-6 py-2 bg-[#343BBF] hover:bg-[#2D33A6] rounded-lg text-[#BDF2F2] transition-all font-semibold"
+        >
+          Votar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <h2 class="text-3xl font-bold mb-6">Reparto principal</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+      <div
+        *ngFor="let actor of reparto"
+        class="bg-[#1F2373]/70 p-4 rounded-xl text-center hover:scale-105 transition-transform"
+      >
+        <img
+          [src]="actor.profile_path ? 'https://image.tmdb.org/t/p/w185' + actor.profile_path : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'"
+          [alt]="actor.name"
+          class="w-full h-48 object-cover rounded-lg mb-3"
+        />
+        <p class="font-semibold">{{ actor.name }}</p>
+        <p class="text-sm text-[#BDF2F2]/70">{{ actor.character }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <h2 class="text-3xl font-bold mb-6">Equipo de producción</h2>
+    <div class="flex flex-wrap gap-6">
+      <div *ngFor="let persona of equipo" class="bg-[#1F2373]/70 px-6 py-3 rounded-xl">
+        <p class="font-semibold">{{ persona.name }}</p>
+        <p class="text-sm text-[#BDF2F2]/70">{{ persona.job }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <h2 class="text-3xl font-bold mb-6">Películas relacionadas</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div
+        *ngFor="let peli of relacionadas"
+        class="relative group cursor-pointer hover:scale-105 transition-transform"
+        [routerLink]="['/peliculas', peli.id]"
+      >
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + peli.poster_path"
+          [alt]="peli.title"
+          class="rounded-xl shadow-lg object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#111440]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-end justify-center"
+        >
+          <p class="text-center text-sm font-semibold mb-3 text-[#BDF2F2] px-2">
+            {{ peli.title }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="cargando" class="text-center text-[#BDF2F2]/70 py-20 text-xl">
+  Cargando detalles de la película...
+</div>
+
+<app-footer></app-footer>
+
