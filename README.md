@@ -1,25 +1,35 @@
-# 🎬 Theme Movie - Prueba Técnica Frontend (PÁGALO)
+# 🎬 CINEMAX - Prueba Técnica Frontend (PÁGALO)
 
 Aplicación web moderna desarrollada con **Angular 17**, inspirada en una experiencia cinematográfica futurista.  
 Permite explorar películas actuales, populares y sus detalles, utilizando la **API pública de The Movie Database (TMDB)**.  
 El sistema incluye autenticación simulada, votación, filtros por fecha, búsqueda dinámica y scroll infinito.
 
 ---
-
+```bash
 ## 🚀 Instalación y configuración
 
 ### 1️⃣ Clonar el repositorio
 
-```bash
 git clone https://github.com/dev-vyn/PRUEBA_PAGALO_DEVYN_TUBAC.git
 cd PRUEBA_PAGALO_DEVYN_TUBAC
 2️⃣ Instalar dependencias
 Asegúrate de tener Node.js (v18 o superior) y Angular CLI instalados:
 
-bash
+
 Copiar código
 npm install -g @angular/cli
 npm install
+3️⃣ Configurar variables de entorno
+Crea un archivo .env o usa directamente el archivo de entorno en Angular (environment.ts):
+
+ts
+Copiar código
+export const environment = {
+  production: false,
+  apiUrl: 'https://api.themoviedb.org/3',
+  apiKey: 'TU_API_KEY_AQUI', // 🔑 Clave personal de TMDB
+};
+🧠 Puedes obtener tu API Key registrándote en TheMovieDB.
 
 4️⃣ Levantar el proyecto
 bash
@@ -125,4 +135,4 @@ Devyn Orlando Tubac Gómez
 📍 Guatemala
 💻 Desarrollador Frontend apasionado por crear experiencias visuales interactivas y modernas.
 
-Proyecto desarrollado como parte de la Prueba Técnica Frontend (PÁGALO).
+Proyecto desarrollado como parte de la Prueba Técnica Frontend (PAGALO).
