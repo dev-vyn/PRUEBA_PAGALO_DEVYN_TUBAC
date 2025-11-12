@@ -6,11 +6,11 @@ El sistema incluye autenticación simulada, votación, filtros por fecha, búsqu
 
 ---
 
+```bash
 ## 🚀 Instalación y configuración
 
 ### 1️⃣ Clonar el repositorio
 
-```bash
 git clone https://github.com/dev-vyn/PRUEBA_PAGALO_DEVYN_TUBAC.git
 cd PRUEBA_PAGALO_DEVYN_TUBAC
 2️⃣ Instalar dependencias
