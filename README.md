@@ -20,17 +20,6 @@ bash
 Copiar código
 npm install -g @angular/cli
 npm install
-3️⃣ Configurar variables de entorno
-Crea un archivo .env o usa directamente el archivo de entorno en Angular (environment.ts):
-
-ts
-Copiar código
-export const environment = {
-  production: false,
-  apiUrl: 'https://api.themoviedb.org/3',
-  apiKey: 'TU_API_KEY_AQUI', // 🔑 Clave personal de TMDB
-};
-🧠 Puedes obtener tu API Key registrándote en TheMovieDB.
 
 4️⃣ Levantar el proyecto
 bash
