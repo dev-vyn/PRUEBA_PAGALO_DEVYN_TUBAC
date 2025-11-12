@@ -1,59 +1,139 @@
-# PagaloFrontend
+# 🎬 Theme Movie - Prueba Técnica Frontend (PÁGALO)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+Aplicación web moderna desarrollada con **Angular 17**, inspirada en una experiencia cinematográfica futurista.  
+Permite explorar películas actuales, populares y sus detalles, utilizando la **API pública de The Movie Database (TMDB)**.  
+El sistema incluye autenticación simulada, votación, filtros por fecha, búsqueda dinámica y scroll infinito.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Instalación y configuración
+
+### 1️⃣ Clonar el repositorio
 
 ```bash
+git clone https://github.com/dev-vyn/PRUEBA_PAGALO_DEVYN_TUBAC.git
+cd PRUEBA_PAGALO_DEVYN_TUBAC
+2️⃣ Instalar dependencias
+Asegúrate de tener Node.js (v18 o superior) y Angular CLI instalados:
+
+bash
+Copiar código
+npm install -g @angular/cli
+npm install
+3️⃣ Configurar variables de entorno
+Crea un archivo .env o usa directamente el archivo de entorno en Angular (environment.ts):
+
+ts
+Copiar código
+export const environment = {
+  production: false,
+  apiUrl: 'https://api.themoviedb.org/3',
+  apiKey: 'TU_API_KEY_AQUI', // 🔑 Clave personal de TMDB
+};
+🧠 Puedes obtener tu API Key registrándote en TheMovieDB.
+
+4️⃣ Levantar el proyecto
+bash
+Copiar código
 ng serve
-```
+El proyecto se ejecutará en:
+👉 http://localhost:4200/
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🧩 Arquitectura de la aplicación
+El proyecto sigue una arquitectura modular y escalable, utilizando el patrón Feature-Based (por funcionalidades).
 
-## Code scaffolding
+bash
+Copiar código
+src/
+│
+├── app/
+│   ├── core/                # Servicios globales, guardas y utilidades
+│   ├── shared/              # Componentes reutilizables (footer, navbar, carrusel, etc.)
+│   ├── features/
+│   │   ├── auth/            # Módulo de autenticación (login simulado)
+│   │   ├── home/            # Página principal (hero animado, carrusel y descripción)
+│   │   └── movies/
+│   │       ├── pages/
+│   │       │   ├── movie-list/        # Listado general de películas
+│   │       │   ├── movie-popular/     # Listado de películas populares (scroll infinito)
+│   │       │   ├── movie-detail/      # Detalle de cada película
+│   │       │   └── ...
+│   │       └── services/              # Conexión con la API TMDB
+│   └── app.routes.ts       # Rutas principales de la aplicación
+│
+├── assets/                 # Imágenes y recursos estáticos
+└── environments/           # Configuraciones por entorno
+🎨 Diseño y experiencia de usuario
+El diseño está inspirado en un ambiente futurista y cinematográfico, con una paleta de colores fría y elegante:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Color	Código	Uso principal
+Azul profundo	#111440	Fondo principal
+Azul oscuro	#1F2373	Secciones secundarias
+Azul brillante	#2D33A6	Botones y acentos
+Azul eléctrico	#343BBF	Hover e interactividad
+Cian suave	#BDF2F2	Texto y detalles contrastantes
 
-```bash
-ng generate component component-name
-```
+✨ Estilo visual
+Animaciones suaves para transiciones y planetas flotantes en el hero section.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Carrusel dinámico con movimiento fluido tipo cartelera.
 
-```bash
-ng generate --help
-```
+Scroll infinito para una exploración continua.
 
-## Building
+Diseño responsivo optimizado para escritorio y dispositivos móviles.
 
-To build the project run:
+⚙️ Principales funcionalidades
+✅ Inicio (Home):
 
-```bash
-ng build
-```
+Animaciones espaciales, hero 3D, y carrusel de películas destacadas.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ Autenticación simulada:
 
-## Running unit tests
+Formulario de login que protege rutas como “Cartelera” y “Populares”.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+✅ Cartelera actual:
 
-```bash
+Listado de películas actuales con búsqueda y filtro por rango de fechas.
+
+Scroll infinito para carga dinámica.
+
+✅ Películas populares:
+
+Orden descendente por popularidad global.
+
+Ranking visual y exploración continua.
+
+✅ Detalle de película:
+
+Póster, descripción, reparto, equipo de producción, votación y sugerencias.
+
+✅ Footer y Navbar modernos:
+
+Diseño responsivo y temático con íconos dinámicos de Lucide.
+
+🧠 Tecnologías utilizadas
+Tecnología	Descripción
+Angular 17+	Framework principal del frontend
+TypeScript	Tipado estático y programación estructurada
+TailwindCSS	Framework CSS para diseño moderno y responsivo
+Lucide Angular	Librería de íconos SVG interactivos
+TheMovieDB API	Fuente de datos para películas, reparto y detalles
+RxJS / Observables	Manejo reactivo de datos asíncronos
+Node.js / npm	Entorno de ejecución y gestión de dependencias
+
+🧪 Ejecución de pruebas (opcional)
+bash
+Copiar código
 ng test
-```
+📦 Construcción para producción
+bash
+Copiar código
+ng build --configuration production
+El resultado se genera en la carpeta dist/.
 
-## Running end-to-end tests
+✍️ Autor
+Devyn Orlando Tubac Gómez
+📍 Guatemala
+💻 Desarrollador Frontend apasionado por crear experiencias visuales interactivas y modernas.
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Proyecto desarrollado como parte de la Prueba Técnica Frontend (PÁGALO).
