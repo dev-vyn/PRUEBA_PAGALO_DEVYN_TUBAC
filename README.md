@@ -1,4 +1,4 @@
-# 🎬 CINEMAX - Prueba Técnica Frontend (PÁGALO)
+# 🎬 THEME MOVIE - Prueba Técnica Frontend (PÁGALO)
 
 Aplicación web moderna desarrollada con **Angular 17**, inspirada en una experiencia cinematográfica futurista.  
 Permite explorar películas actuales, populares y sus detalles, utilizando la **API pública de The Movie Database (TMDB)**.  
@@ -19,17 +19,6 @@ Asegúrate de tener Node.js (v18 o superior) y Angular CLI instalados:
 Copiar código
 npm install -g @angular/cli
 npm install
-3️⃣ Configurar variables de entorno
-Crea un archivo .env o usa directamente el archivo de entorno en Angular (environment.ts):
-
-ts
-Copiar código
-export const environment = {
-  production: false,
-  apiUrl: 'https://api.themoviedb.org/3',
-  apiKey: 'TU_API_KEY_AQUI', // 🔑 Clave personal de TMDB
-};
-🧠 Puedes obtener tu API Key registrándote en TheMovieDB.
 
 4️⃣ Levantar el proyecto
 bash
