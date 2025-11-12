@@ -21,7 +21,7 @@ export class NavbarComponent {
   }
 
   irPopulares() {
-    this.router.navigate(['/peliculas-populares']);
+    this.router.navigate(['/populares']);
   }
 
   cerrarSesion() {

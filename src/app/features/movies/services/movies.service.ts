@@ -60,4 +60,23 @@ export class MoviesService {
       `${this.apiUrl}/movie/${id}/similar?api_key=${this.apiKey}&language=es-ES`
     );
   }
+
+  getPopularMovies(page = 1) {
+    return this.http.get(`${this.apiUrl}/movie/popular`, {
+      params: {
+        api_key: this.apiKey,
+        language: 'es-ES',
+        page: page,
+        sort_by: 'popularity.desc',
+      },
+    });
+  }
+
+  buscarPeliculas(query: string, startDate?: string, endDate?: string) {
+    let url = `${this.apiUrl}/search/movie?api_key=${this.apiKey}&language=es-ES&query=${query}`;
+    if (startDate && endDate) {
+      url += `&primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}`;
+    }
+    return this.http.get(url);
+  }
 }
