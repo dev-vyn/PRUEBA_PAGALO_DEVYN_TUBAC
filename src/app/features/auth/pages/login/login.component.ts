@@ -20,7 +20,7 @@ export class LoginComponent {
 
   iniciarSesion() {
     if (this.auth.login(this.usuario, this.password)) {
-      this.router.navigate(['/']);
+      this.router.navigate(['peliculas']);
     } else {
       this.error = 'Usuario o contraseña incorrectos.';
     }

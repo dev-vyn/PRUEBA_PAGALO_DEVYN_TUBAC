@@ -1,0 +1,59 @@
+<nav
+  class="fixed top-0 left-0 w-full bg-[#111440]/80 backdrop-blur-lg border-b border-[#343BBF]/40 shadow-lg z-50 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+    <div class="flex items-center space-x-2 cursor-pointer" (click)="irInicio()">
+      <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#2D33A6] to-[#343BBF] flex items-center justify-center animate-pulse-slow shadow-md">
+        <i-lucide name="home" class="text-[#BDF2F2] w-5 h-5 drop-shadow-[0_0_6px_#BDF2F2]"></i-lucide>
+      </div>
+      <span
+        class="text-[#BDF2F2] text-xl font-bold tracking-wider hover:text-[#BDF2F2]/90 transition-all"
+      >
+        CINEMAX
+      </span>
+    </div>
+
+    <div class="hidden md:flex items-center gap-8 text-[#BDF2F2]">
+      <button
+        class="flex items-center gap-2 hover:text-[#86C8C8] transition-all font-medium"
+        (click)="irPopulares()"
+      >
+        <i-lucide name="flame" class="w-5 h-5 text-[#BDF2F2] drop-shadow-[0_0_6px_#343BBF]"></i-lucide>
+        <span>Populares</span>
+      </button>
+
+      <button
+        class="flex items-center gap-2 text-red-400 hover:text-red-500 transition-all font-medium"
+        (click)="cerrarSesion()"
+      >
+        <i-lucide name="log-out" class="w-5 h-5 text-red-400 drop-shadow-[0_0_6px_#ff4b4b]"></i-lucide>
+        <span>Cerrar sesión</span>
+      </button>
+    </div>
+
+    <button class="md:hidden text-[#BDF2F2]" (click)="toggleMenu()">
+      <i-lucide name="menu" class="w-7 h-7 drop-shadow-[0_0_6px_#BDF2F2]"></i-lucide>
+    </button>
+  </div>
+
+  <div
+    *ngIf="menuAbierto"
+    class="md:hidden bg-[#1F2373]/95 border-t border-[#343BBF]/30 animate-slide-down shadow-lg"
+  >
+    <button
+      class="w-full text-left px-6 py-3 text-[#BDF2F2] hover:bg-[#2D33A6]/70 transition-all flex items-center gap-2"
+      (click)="irPopulares(); toggleMenu()"
+    >
+      <i-lucide name="flame" class="w-5 h-5 text-[#BDF2F2]"></i-lucide>
+      Populares
+    </button>
+
+    <button
+      class="w-full text-left px-6 py-3 text-red-400 hover:bg-red-500/10 transition-all flex items-center gap-2"
+      (click)="cerrarSesion(); toggleMenu()"
+    >
+      <i-lucide name="log-out" class="w-5 h-5 text-red-400"></i-lucide>
+      Cerrar sesión
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<section class="min-h-screen bg-[#111440] text-[#BDF2F2] py-16 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:3px_3px] animate-twinkle pointer-events-none"></div>
+  <div class="absolute w-[400px] h-[400px] bg-[#343BBF]/30 rounded-full blur-3xl top-0 left-1/2 -translate-x-1/2"></div>
+
+  <h2
+    class="text-5xl md:text-6xl font-extrabold text-center mb-4 tracking-wide text-[#BDF2F2] animate-fade-down"
+  >
+    Cartelera Actual
+  </h2>
+
+  <p
+    class="text-center text-lg md:text-xl text-[#E6E8FF]/80 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-up"
+  >
+    Disfruta de los estrenos más esperados, revive clásicos del cine y explora lo mejor de la pantalla grande.  
+    Aquí comienza tu experiencia cinematográfica, donde cada historia cobra vida.
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-4 mb-10 animate-fade-up delay-200">
+    <input
+      type="text"
+      [(ngModel)]="query"
+      placeholder="Buscar por nombre..."
+      class="px-4 py-2 rounded-lg bg-[#1F2373]/70 border border-[#343BBF]/60 focus:ring-2 focus:ring-[#BDF2F2] outline-none placeholder-[#BDF2F2]/60"
+    />
+    <input
+      type="date"
+      [(ngModel)]="startDate"
+      class="px-3 py-2 rounded-lg bg-[#1F2373]/70 border border-[#343BBF]/60 focus:ring-2 focus:ring-[#BDF2F2] outline-none text-[#BDF2F2]"
+    />
+    <input
+      type="date"
+      [(ngModel)]="endDate"
+      class="px-3 py-2 rounded-lg bg-[#1F2373]/70 border border-[#343BBF]/60 focus:ring-2 focus:ring-[#BDF2F2] outline-none text-[#BDF2F2]"
+    />
+    <button
+      (click)="buscar()"
+      class="bg-[#343BBF] hover:bg-[#2D33A6] text-[#BDF2F2] px-6 py-2 rounded-lg transition-all shadow-lg hover:shadow-[#343BBF]/40 font-semibold"
+    >
+      Filtrar
+    </button>
+  </div>
+
+  <div
+    class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto animate-fade-up delay-300"
+  >
+    <div
+      *ngFor="let peli of peliculas"
+      class="bg-[#1F2373]/70 rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-[#343BBF]/50 transition-transform relative group cursor-pointer"
+      [routerLink]="['/peliculas', peli.id]"
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + peli.poster_path"
+        [alt]="peli.title"
+        class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[#111440]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+      ></div>
+      <div class="absolute bottom-4 left-0 w-full text-center px-3">
+        <h3 class="text-lg font-bold">{{ peli.title }}</h3>
+        <p class="text-sm text-[#BDF2F2]/80">⭐ {{ peli.vote_average | number:'1.1-1' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cargando" class="text-center mt-12 text-[#BDF2F2]/70 animate-pulse">
+    Cargando más películas...
+  </div>
+</section>
+
+<app-footer></app-footer>
